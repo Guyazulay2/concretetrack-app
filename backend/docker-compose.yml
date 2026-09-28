@@ -8,6 +8,8 @@ services:
     environment:
       - DATABASE_URL=postgresql+asyncpg://concrete:concrete@db/concretetrack
       - JWT_SECRET=${JWT_SECRET}
+      - INITIAL_ADMIN_PASSWORD=${INITIAL_ADMIN_PASSWORD}
+      - INITIAL_INSPECTOR_PASSWORD=${INITIAL_INSPECTOR_PASSWORD}
       - AWS_REGION=${AWS_REGION}
       - S3_BUCKET=${S3_BUCKET}
       - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}

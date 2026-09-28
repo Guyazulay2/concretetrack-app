@@ -12,7 +12,9 @@ from models.database import User, get_db, verify_password
 router = APIRouter()
 oauth2 = OAuth2PasswordBearer(tokenUrl="/api/auth/login")
 
-SECRET = os.getenv("JWT_SECRET", "dev-secret")
+SECRET = os.environ.get("JWT_SECRET", "")
+if len(SECRET) < 32:
+    raise RuntimeError("JWT_SECRET must be set and at least 32 characters long")
 ALGO   = "HS256"
 TTL    = 24
 
