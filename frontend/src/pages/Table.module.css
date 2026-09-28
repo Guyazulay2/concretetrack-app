@@ -1,0 +1,160 @@
+.page { padding: 28px 32px; max-width: 1400px; }
+.loading { padding: 80px; text-align: center; color: var(--text2); }
+.header { margin-bottom: 20px; }
+.title  { font-size: 22px; font-weight: 900; letter-spacing: -.4px; }
+.sub    { font-size: 13px; color: var(--text2); margin-top: 3px; }
+
+.filters {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 18px;
+  flex-wrap: wrap;
+}
+.chip {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  color: var(--text2);
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  transition: all .15s;
+}
+.chip:hover { border-color: var(--border2); color: var(--text); }
+.chipActive {
+  background: rgba(59,130,246,.15) !important;
+  border-color: rgba(59,130,246,.35) !important;
+  color: #60a5fa !important;
+}
+
+.card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+.table th {
+  text-align: right;
+  padding: 10px 16px;
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--text3);
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  background: var(--bg3);
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+}
+.table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: middle;
+}
+.table tr:last-child td { border-bottom: none; }
+.table tr:hover td { background: rgba(255,255,255,.015); }
+
+.empty { padding: 40px; text-align: center; color: var(--text3); font-size: 14px; }
+
+.regionBadge {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+.north  { background: rgba(99,102,241,.15); color: #a5b4fc; }
+.center { background: rgba(59,130,246,.15); color: #93c5fd; }
+.south  { background: rgba(34,197,94,.15);  color: #86efac; }
+
+.city { font-weight: 700; font-size: 13px; }
+.desc { font-size: 11px; color: var(--text2); margin-top: 1px; }
+.mapLink {
+  font-size: 11px;
+  color: var(--accent);
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 2px;
+}
+.mapLink:hover { text-decoration: underline; }
+
+.time { font-size: 12px; color: var(--text2); white-space: nowrap; }
+
+.thumb {
+  width: 46px; height: 36px;
+  object-fit: cover;
+  border-radius: 7px;
+  border: 1px solid var(--border);
+  cursor: pointer;
+  transition: transform .15s;
+}
+.thumb:hover { transform: scale(1.08); }
+.videoThumb { font-size: 20px; cursor: pointer; }
+.noMedia { color: var(--text3); font-size: 16px; }
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+.dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+.waiting   { background: rgba(245,158,11,.12); color: #fbbf24; }
+.collected { background: rgba(34,197,94,.12);  color: #4ade80; }
+.cancelled { background: rgba(100,116,139,.12);color: #94a3b8; }
+
+.acts { display: flex; gap: 6px; flex-wrap: wrap; }
+.btnC {
+  background: rgba(59,130,246,.15);
+  border: 1px solid rgba(59,130,246,.3);
+  color: #60a5fa;
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  transition: all .15s;
+}
+.btnC:hover { background: rgba(59,130,246,.28); }
+.btnX {
+  background: rgba(239,68,68,.1);
+  border: 1px solid rgba(239,68,68,.25);
+  color: #f87171;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  transition: all .15s;
+}
+.btnX:hover { background: rgba(239,68,68,.2); }
+.done { font-size: 12px; color: var(--green); font-weight: 700; }
+
+/* ── MOBILE ── */
+@media (max-width: 768px) {
+  .page { padding: 16px; }
+
+  .table, .table thead, .table tbody, .table th, .table td, .table tr {
+    display: block;
+  }
+  .table thead { display: none; }
+  .table tr {
+    background: var(--bg2);
+    border-radius: var(--radius-sm);
+    margin-bottom: 10px;
+    padding: 14px;
+    border: 1px solid var(--border);
+  }
+  .card { background: transparent; border: none; overflow: visible; }
+  .table td { padding: 4px 0; border: none; }
+
+  .acts { margin-top: 10px; }
+  .btnC, .btnX { padding: 9px 18px; font-size: 13px; border-radius: 10px; }
+}
