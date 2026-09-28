@@ -1,0 +1,15 @@
+# ===== Secrets - never in git =====
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+*-secret.yaml
+*.secret.yaml
+encryption-config.yaml
+kubeconfig*
+admin.conf
+
+# ===== General =====
+.DS_Store
+*.tgz
