@@ -295,7 +295,7 @@ export default function NewEntry() {
 // XHR upload with real progress tracking
 function uploadWithProgress(entryId, file, onProgress) {
   return new Promise((resolve, reject) => {
-    const BACKEND = 'https://concretetrack-backend.onrender.com'
+    const BACKEND = ''   // יחסי: /api על אותו דומיין
     const token = localStorage.getItem('ct_token')
     const fd = new FormData()
     fd.append('file', file)

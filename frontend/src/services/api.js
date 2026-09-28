@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const BACKEND = 'https://concretetrack-backend.onrender.com'
+const BACKEND = ''   // יחסי: /api על אותו דומיין
 
 const api = axios.create({
   baseURL: BACKEND + '/api',

@@ -4,8 +4,8 @@ import { useAuth } from '../context/AuthContext'
 import styles from './LoginPage.module.css'
 
 const ROLES = [
-  { key: 'inspector', label: 'בודק שטח', icon: '👷', user: 'isotop', pass: 'user123' },
-  { key: 'admin',     label: 'סדרן / מנהל', icon: '🔧', user: 'admin', pass: 'admin123' },
+  { key: 'inspector', label: 'בודק שטח', icon: '👷', user: 'isotop', pass: '' },
+  { key: 'admin',     label: 'סדרן / מנהל', icon: '🔧', user: 'admin', pass: '' },
 ]
 
 export default function LoginPage() {
@@ -13,7 +13,7 @@ export default function LoginPage() {
   const nav = useNavigate()
   const [role, setRole]     = useState('inspector')
   const [username, setUsername] = useState('isotop')
-  const [password, setPassword] = useState('user123')
+  const [password, setPassword] = useState('')
   const [loading, setLoading]   = useState(false)
   const [err, setErr]           = useState('')
 
