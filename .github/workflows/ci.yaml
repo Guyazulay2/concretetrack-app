@@ -90,3 +90,29 @@ jobs:
             ${{ env.IMAGE_PREFIX }}-${{ matrix.component }}:latest
           cache-from: type=gha,scope=${{ matrix.component }}
           cache-to: type=gha,mode=max,scope=${{ matrix.component }}
+  update-gitops:
+    needs: build-push
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    concurrency: gitops-update   # שתי ריצות לא דוחפות לריפו gitops במקביל
+    steps:
+      - name: Checkout gitops repo
+        uses: actions/checkout@v4
+        with:
+          repository: Guyazulay2/concretetrack-gitops
+          ssh-key: ${{ secrets.GITOPS_DEPLOY_KEY }}
+
+      - name: Bump image tag
+        run: |
+          TAG="sha-${GITHUB_SHA::7}"
+          yq -i ".image.tag = \"${TAG}\"" apps/concretetrack/values.yaml
+          if git diff --quiet; then
+            echo "tag already ${TAG}, nothing to do"
+            exit 0
+          fi
+          git diff
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -am "deploy: concretetrack ${TAG}" \
+                     -m "source: ${{ github.server_url }}/${{ github.repository }}/commit/${GITHUB_SHA}"
+          git push
